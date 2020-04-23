@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sing and learn</title>
+    <link rel="shortcut icon" href="/img/icon2.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
+    <style>
+        .hide {
+            opacity: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    {{#if users}}
+
+    {{>loader}}
+    <div class="hide" id="contenido">
+        {{>navigation}}
+
+        {{> message}}
+
+        {{> sidebar}}
+
+        {{{body}}}
+    </div>
+    {{else}}
+        {{>navigation}}
+
+        {{> message}}
+
+        {{> sidebar}}
+
+        {{{body}}}
+    {{/if}}
+
+    <script>
+        window.addEventListener('load', () => {
+        setTimeout(carga, 2000);
+
+        function carga() {
+            document.getElementById('contenido').style.opacity = 1;
+            document.getElementById('load').style.display = 'none';
+        }
+    });
+    </script>
+
+</body>
+
+</html>

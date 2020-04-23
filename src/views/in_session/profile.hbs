@@ -1,0 +1,88 @@
+<head>
+    <link rel="stylesheet" href="/css/profile.css">
+</head>
+
+<div class="containerCard">
+    <div class="box">
+        <div class="content" id="content">
+            
+            {{#if photo}}
+
+                {{#each photo}}
+                    <img src="{{imageURL}}" alt="" id="img">
+                    <a href="#" class="btn" id="addPhoto">Change</a>
+                {{/each}}
+            {{else}}    
+            <img src="/img/user.png" alt="">
+            <a href="#" class="btn" id="addPhoto">Add photo</a>
+            {{/if}}
+
+            <h4>Welcome {{users.fullname}}</h4>
+            <h3>{{users.username}}</h3>
+            <a href="/home" class="btn">Deseas comenzar?</a>
+        </div>
+    </div>
+</div>
+
+<div class="add-photo" id="form-photo">
+    <span class="close " id="close">&times;</span>
+    <div class="box-photo animation">
+        <div class="img" id="prev-img">
+            <img src="/img/no-image.png" alt="" id="prev">
+        </div>
+        <div class="form-photo">
+            <div class="form-heading">
+                <h3>Choose an image</h3>
+            </div>
+            <form enctype="multipart/form-data" method="POST" action="/profile">
+                <div class="div-file">
+                    <p for="" class="add-file">Add File</p>
+                    <input type="file" name="image" class="btn-enviar" id="inputFile">
+                </div>
+                <button type="submit" class="btn" id="btn">Save</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    const addPhoto = document.getElementById('addPhoto');
+    const close = document.getElementById('close');
+    const formPhoto = document.getElementById('form-photo');
+    //open the form
+    addPhoto.addEventListener('click', function () {
+        formPhoto.style.display = "flex";
+    });
+    //close the form
+    close.addEventListener('click', function () {
+        formPhoto.style.display = "none";
+    });
+
+    window.onclick = function (event) {
+        if (event.target == formPhoto) {
+            formPhoto.style.display = "none";
+        }
+    }
+    //previsualizar foto
+    const prevImg = document.getElementById('prev-img');
+    const file = document.getElementById('inputFile');
+    //previsualizar la foto
+    function filePrev(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                const pre = document.getElementById('prev');
+                pre.src = e.target.result;
+                prevImg.appendChild(prev);
+            }
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    file.addEventListener('change', function () {
+        filePrev(this);
+    });
+    
+
+</script>

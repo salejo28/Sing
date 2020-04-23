@@ -1,0 +1,567 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin|Herr+Von+Muellerhoff|Source+Sans+Pro:400,900&display=swap');
+
+/*Global styles*/
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-font: 'Source Sans Pro', sans-serif;
+    --secondary-font: 'Herr Von Muellerhoff', cursive;
+    --body-font: 'Cabin', sans-serif;
+    --main-font-color-dark: #252525;
+    --secondary-font-color: #fff;
+    --body-font-color: #515151;
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #bc4e9c;
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.671), hsla(317, 45%, 52%, 0.411));
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(340, 95%, 50%, 0.671), hsla(317, 45%, 52%, 0.411));
+    border-radius: 7px;
+}
+
+html {
+    font-family: var(--body-font);
+    font-size: 10px;
+    color: var(--body-font-color);
+    scroll-behavior: smooth;
+}
+
+img {
+    width: 100%;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.container {
+    width: 100%;
+    max-width: 122.5rem;
+    margin: 0 auto;
+    padding: 0 2.4rem;
+}
+
+.titulo {
+    color: #642a73;
+    font-size: 30px;
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.contenedor {
+    padding: 40px 0;
+    width: 90%;
+    max-width: 1000px;
+    margin: auto;
+    overflow: hidden;
+}
+
+
+/*Sidenav*/
+
+#sidenav i {
+    margin-left: 1rem;
+}
+
+#sidenav i.fa-twitter {
+    margin-left: 3.25rem;
+}
+
+#sidenav .add {
+    position: fixed;
+    left: -100px;
+    transition: .3s;
+    padding: 15px;
+    width: 150px;
+    text-decoration: none;
+    font-size: 20px;
+    color: white;
+    border-radius: 0 5px 5px 0;
+    z-index: 5;
+}
+
+#sidenav .add:hover {
+    left: 0;
+}
+
+#facebook {
+    top: 150px;
+    background-color: #2C3E50;
+}
+
+#twitter {
+    top: 210px;
+    background-color: #2C3E50;
+}
+
+#instagram {
+    top: 270px;
+    background-color: #2C3E50;
+}
+
+
+/*Hero*/
+
+.hero {
+    width: 100%;
+    height: 100vh;
+    background: #bc4e9c;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.671), hsla(317, 45%, 52%, 0.411)), url(../img/portada.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(340, 95%, 50%, 0.671), hsla(317, 45%, 52%, 0.411)), url(../img/portada.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.sub-headline {
+    font-size: 8.5rem;
+    font-family: var(--secondary-font);
+    color: var(--main-font-color-dark);
+    font-weight: 100;
+    line-height: .4;
+    letter-spacing: 2px;
+    opacity: 0;
+    animation: fadeUp .5s forwards;
+    animation-delay: .5s;
+}
+
+.first-letter {
+    text-transform: uppercase;
+    font-size: 10.3rem;
+}
+
+.headline {
+    color: #fff;
+    font-size: 3.7rem;
+    font-family: var(--main-font);
+    text-transform: uppercase;
+    font-weight: 900;
+    letter-spacing: .5rem;
+    margin-right: -.5rem;
+    animation: scale .5s forwards;
+}
+
+.separator {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.line {
+    width: 100%;
+    max-width: 8.4rem;
+    height: .25rem;
+    background-color: #fff;
+    position: relative;
+    opacity: 0;
+    animation: grow 2s forwards;
+    animation-delay: .9s;
+}
+
+.line-right::before,
+.line-left::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border: .6rem solid transparent;
+    opacity: 0;
+    animation: grow .5s forwards;
+    animation-delay: 1.2s;
+}
+
+.line-right::before {
+    border-right-color: #fff;
+    right: 0;
+}
+
+.line-left::before {
+    border-left-color: #fff;
+    left: 0;
+}
+
+.asterisk {
+    font-size: 1.2rem;
+    color: #fff;
+    margin: 0 1.6rem;
+    opacity: 0;
+    animation: spin .5s forwards;
+    animation-delay: .7s;
+}
+
+.btn {
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-right: -2px;
+}
+
+.cta-btn {
+    font-size: 1.1rem;
+    background-color: #fff;
+    padding: .9rem 1.8rem;
+    color: var(--body-font-color);
+    border-radius: .4rem;
+    transition: background-color .5s;
+}
+
+.cta-btn:hover,
+.cta-btn:focus {
+    color: #fff;
+    background-color: rgb(188, 20, 230);
+}
+
+.single-animation {
+    opacity: 0;
+    animation: fadeDown .5s forwards;
+    animation-delay: 1.5s;
+}
+
+.wave {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
+
+@keyframes fadeUp {
+    0% {
+        transform: translateY(4rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scale {
+    0% {
+        transform: scale(2);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes grow {
+    0% {
+        width: 0;
+    }
+    100% {
+        opacity: 1;
+        width: 100%;
+    }
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(-360deg);
+    }
+}
+
+@keyframes fadeDown {
+    0% {
+        transform: translateY(-1rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/*Site Content Index*/
+
+
+/*Doctors section*/
+
+.doctors {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.doctors img {
+    width: 550px;
+}
+
+.contenedor-doctors {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-doctors {
+    margin: 0 0 0 30px;
+}
+
+.contenedor-doctors p {
+    font-weight: 100;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #5d6678;
+}
+
+.contenedor-doctors a {
+    margin: 28px 0 0 0;
+    width: 130px;
+    display: inline-block;
+    background: #4d0686;
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(68, 24, 70, 0.5);
+}
+
+.contenedor-doctors h1 {
+    color: #4d0686;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+/*sing section*/
+
+.sing {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.sing img {
+    width: 550px;
+}
+
+.contenedor-sing {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-sing {
+    margin: 0 0 0 30px;
+}
+
+.contenedor-sing p {
+    font-weight: 100;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #5d6678;
+}
+
+.contenedor-sing a {
+    margin: 28px 0 0 0;
+    width: 130px;
+    display: inline-block;
+    background: #4d0686;
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(68, 24, 70, 0.5);
+}
+
+.contenedor-sing h1 {
+    color: #4d0686;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+/*ideas section*/
+
+.ideas {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.ideas img {
+    width: 550px;
+}
+
+.contenedor-ideas {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-ideas {
+    margin: 0 0 0 30px;
+}
+
+.contenedor-ideas p {
+    font-weight: 100;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #5d6678;
+}
+
+.contenedor-ideas a {
+    margin: 28px 0 0 0;
+    width: 130px;
+    display: inline-block;
+    background: #4d0686;
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(68, 24, 70, 0.5);
+}
+
+.contenedor-ideas h1 {
+    color: #4d0686;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+/*oportunities section*/
+
+.oprtunities {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.oprtunities img {
+    width: 550px;
+}
+
+.contenedor-oprtunities {
+    width: 100%;
+    height: 600px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.text-oprtunities {
+    margin: 0 0 0 30px;
+}
+
+.contenedor-oprtunities p {
+    font-weight: 100;
+    margin-top: 14px;
+    font-size: 20px;
+    color: #5d6678;
+}
+
+.contenedor-oprtunities a {
+    margin: 28px 0 0 0;
+    width: 130px;
+    display: inline-block;
+    background: #4d0686;
+    color: #fff;
+    padding: 12px 0;
+    text-align: center;
+    font-weight: 400;
+    text-transform: uppercase;
+    font-size: 14px;
+    border-radius: 6px;
+    box-shadow: 0 8px 32px rgba(68, 24, 70, 0.5);
+}
+
+.contenedor-oprtunities h1 {
+    color: #4d0686;
+    font-size: 35px;
+    font-weight: 700;
+}
+
+
+/*About us*/
+
+.about {
+    width: 100%;
+    height: 100vh;
+    background: #bc4e9c;
+    /* fallback for old browsers */
+    background: -webkit-linear-gradient(to right, hsla(340, 95%, 50%, 0.671), hsla(317, 45%, 52%, 0.411)), url(../img/3534378.jpg);
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to right, hsla(340, 95%, 50%, 0.671), hsla(317, 45%, 52%, 0.411)), url(../img/3534378.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-align: center;
+}
+
+.contenedor-sobre-nosotros {
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.imagen-about-us {
+    width: 49%;
+}
+
+.sobre-nosotros .contenido-textos {
+    align-items: center;
+    justify-content: center;
+    width: 48%;
+}
+
+.contenido-textos h3 span {
+    background: #4d0686;
+    color: #fff;
+    border-radius: 50%;
+    display: inline-block;
+    text-align: center;
+    width: 30px;
+    height: 30px;
+    padding: 2.5px;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, .5);
+    margin-right: 5px;
+}
+
+.contenido-textos h3 {
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.contenido-textos p {
+    align-items: center;
+    justify-content: center;
+    padding: 0 0 30px 15px;
+    font-weight: 300;
+    text-align: justify;
+}

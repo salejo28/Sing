@@ -1,0 +1,252 @@
+* {
+    box-sizing: border-box;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+body {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #33d1a0 !important;
+}
+
+.containerCard {
+    position: relative;
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+
+.containerCard .box {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    width: 320px;
+    height: 450px;
+    margin: 20px;
+    background: #121e27;
+    border-radius: 8px;
+    box-shadow: 0px 5px 0px #ccc;
+}
+
+.containerCard .box .content {
+    padding: 30px;
+    align-items: center;
+}
+
+.containerCard .box .content .quote {
+    width: 90%;
+    max-width: 90%;
+}
+
+.containerCard .box .content .btn-gost {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 10px 30px;
+    color: #fff;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: transparent;
+    transition: .5s ease;
+    border-radius: 50px;
+}
+
+.containerCard .box .content .btn-gost:hover {
+    background-color: #fff;
+    color: #000;
+}
+
+.containerCard h4 {
+    padding: 12px 0 0 0;
+    color: #33d1a0;
+    text-transform: uppercase;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: 600;
+}
+
+.containerCard h3 {
+    padding: 0 5px 0 0;
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 400;
+}
+
+.containerCard .btn {
+    position: relative;
+    display: inline-block;
+    border: 2px solid #fff;
+    padding: 10px 30px;
+    color: #000;
+    font-weight: 700;
+    text-transform: uppercase;
+    cursor: pointer;
+    background-color: #fff;
+    transition: .5s ease;
+    border-radius: 50px;
+}
+
+.containerCard .btn:hover {
+    background-color: transparent;
+    color: #fff;
+}
+
+
+/*Form card add Photo*/
+
+.animation {
+    animation: animatezoom .8s;
+}
+
+.add-photo {
+    display: none;
+    z-index: 100;
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(0, 0, 0);
+    background-color: rgba(0, 0, 0, 0.4);
+    padding-top: 60px;
+}
+
+.close {
+    position: absolute;
+    right: 25px;
+    top: 30px;
+    color: #c9caca;
+    font-size: 35px;
+    font-weight: bold;
+    transition: color .5s ease-in;
+}
+
+.close:hover,
+.close:focus {
+    cursor: pointer;
+    color: rgb(212, 25, 25);
+}
+
+.add-photo .box-photo {
+    background-color: #fff;
+    flex-basis: 850px;
+    max-width: 850px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, .2);
+    padding: 30px;
+    display: flex;
+}
+
+.add-photo .box-photo .img {
+    flex-basis: 50%;
+    max-width: 50%;
+}
+
+.add-photo .box-photo .img img {
+    display: block;
+    width: 100%;
+}
+
+.add-photo .box-photo .form-photo {
+    flex-basis: 50%;
+    max-width: 50%;
+    padding-left: 30px;
+}
+
+.add-photo .box-photo .form-photo h3 {
+    text-transform: uppercase;
+    color: #444;
+    font-size: 30px;
+    margin: 20px 0 40px;
+    border-bottom: 1px solid #ff5722;
+    padding-bottom: 5px;
+}
+
+.add-photo .box-photo .form-photo .form-heading,
+.add-photo .box-photo .form-photo form {
+    width: 100%;
+}
+
+.add-photo .box-photo .form-photo form p.add-file {
+    color: #fff;
+    text-align: center;
+}
+
+.add-photo .box-photo .form-photo form .div-file {
+    display: inline-block;
+    position: relative;
+    padding: 10px;
+    width: 150px;
+    background-color: #2499e3;
+    border-radius: 7px;
+    box-shadow: 0 3px 0 #1a71a9;
+    transition: background-color .5s ease;
+}
+
+.add-photo .box-photo .form-photo form .div-file:hover {
+    background-color: #1a71a9;
+    box-shadow: 0 3px 0 #238bcc;
+}
+
+.add-photo .box-photo .form-photo form input.btn-enviar {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.add-photo .box-photo .form-photo form .btn {
+    margin-left: 20px;
+    display: inline-block;
+    height: 45px;
+    background-color: #ff5722;
+    color: #fff;
+    padding: 0 40px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border: 2px solid #e13c08;
+    border-radius: 50px;
+    transition: background-color .5s ease;
+}
+
+.add-photo .box-photo .form-photo form .btn:hover {
+    background-color: transparent;
+    color: #000;
+}
+
+@keyframes animatezoom {
+    0% {
+        transform: scale(0);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@media (max-width:767px) {
+    .add-photo .box-photo .img {
+        display: none;
+    }
+    .add-photo .box-photo .form-photo {
+        flex-basis: 100%;
+        max-width: 100%;
+        padding-left: 0;
+    }
+}
